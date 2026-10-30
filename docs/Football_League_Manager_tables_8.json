@@ -1,0 +1,687 @@
+{
+  "tables": [
+    {
+      "id": "V0rFzQL-rBB0IkcvgSpmO",
+      "name": "Championship",
+      "x": -696.6654106259159,
+      "y": -193.2110521976318,
+      "locked": false,
+      "fields": [
+        {
+          "name": "id",
+          "type": "SERIAL",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": false,
+          "unsigned": true,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "id": "oLgkyCZK6wbCLZY_X9QpS",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "oDXgvXEe847nm1c_hZdie",
+          "name": "name",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": 255
+        },
+        {
+          "id": "qFT0SWJCGC66UCLrTQ3LM",
+          "name": "start_date",
+          "type": "DATE",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "5tCIfhzWosjxFwVJmme59",
+          "name": "end_date",
+          "type": "DATE",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "V_W8M2iNhGPti9RJqm_NV",
+          "name": "status",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": 255
+        }
+      ],
+      "comment": "",
+      "indices": [],
+      "uniqueConstraints": [],
+      "color": "#175e7a",
+      "collapsed": false
+    },
+    {
+      "id": "jeEdYfP45bZhRdg0h0t86",
+      "name": "Team",
+      "x": 28.01198153918449,
+      "y": -348.53901385516366,
+      "locked": false,
+      "fields": [
+        {
+          "name": "id",
+          "type": "SERIAL",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": false,
+          "unsigned": true,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "id": "GXLsSVbekhEjvMyqxNh9t",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "a38EyXpR96gihotM6PHtS",
+          "name": "name",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": 255
+        },
+        {
+          "id": "vk8Zs9-WBLzFo8S0mXJji",
+          "name": "leader_id",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": true,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        }
+      ],
+      "comment": "",
+      "indices": [],
+      "uniqueConstraints": [],
+      "color": "#175e7a",
+      "collapsed": false,
+      "width": 226
+    },
+    {
+      "id": "F3JtJjCzN6xwyxDYqG9OE",
+      "name": "Player",
+      "x": 429.11777351971443,
+      "y": -330.7400427635497,
+      "locked": false,
+      "fields": [
+        {
+          "name": "id",
+          "type": "SERIAL",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": false,
+          "unsigned": true,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "id": "UwNLARPK93uQaK82j9JaP",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "Uo5mRgSLBZ5Fiqo7YLzFU",
+          "name": "first_name",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": 255
+        },
+        {
+          "id": "Ge7Czk4Y0iunAfzIrbId4",
+          "name": "last_name",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": 255
+        },
+        {
+          "id": "4n82GVRIZasgKZNorn1lZ",
+          "name": "birth_date",
+          "type": "DATE",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "wOsz0iHHKyd8g_IH8C8hl",
+          "name": "email",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": 255
+        },
+        {
+          "id": "V8CzW1AQVDenNU73bd73X",
+          "name": "team_id",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "mGXTZAeRCRGo_CNDXw7Fx",
+          "name": "imagine",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": 255
+        }
+      ],
+      "comment": "",
+      "indices": [],
+      "uniqueConstraints": [],
+      "color": "#175e7a",
+      "collapsed": false,
+      "width": 262
+    },
+    {
+      "id": "7qtDgVI9op1L9dsEBbURS",
+      "name": "Django User",
+      "x": 50.8523239079592,
+      "y": -36.462548490173276,
+      "locked": false,
+      "fields": [
+        {
+          "name": "id",
+          "type": "SERIAL",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": false,
+          "unsigned": true,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "id": "ZFyy6MxVoIowoBcBG95k7",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "RsPcBfycubFHcwzHTtN63",
+          "name": "username",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": 255
+        },
+        {
+          "id": "F5jfW7hnQbu9EJ1dEAGf9",
+          "name": "password",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": true,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": 255,
+          "values": []
+        },
+        {
+          "id": "hzYEP_x0vtH2R8HNGll8q",
+          "name": "email",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": true,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": 255
+        },
+        {
+          "id": "9i4kZiz2mlb0GEsZwnnMT",
+          "name": "first_name",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": 255
+        },
+        {
+          "id": "ZZHnBC25_nqLsM-k1D5fX",
+          "name": "last_name",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": 255
+        }
+      ],
+      "comment": "",
+      "indices": [],
+      "uniqueConstraints": [],
+      "color": "#175e7a",
+      "collapsed": false,
+      "width": 261
+    },
+    {
+      "id": "WWbXEZp2pPjda0SW06hW8",
+      "name": "Championship_team",
+      "x": -403.2063109626576,
+      "y": -418.670843430904,
+      "locked": false,
+      "fields": [
+        {
+          "name": "championship_id",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": false,
+          "unsigned": true,
+          "notNull": true,
+          "increment": true,
+          "comment": "",
+          "id": "rLfgHw5NtUXCMgIw0qIbg"
+        },
+        {
+          "id": "YxOm7iXMEnO_BJO4Sa9kc",
+          "name": "team_id",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        }
+      ],
+      "comment": "",
+      "indices": [],
+      "uniqueConstraints": [],
+      "color": "#175e7a",
+      "collapsed": false,
+      "width": 259
+    },
+    {
+      "id": "iusSJtoXklMViqbHG1DiN",
+      "name": "Match",
+      "x": -368.12498208851196,
+      "y": -50.38534069445353,
+      "locked": false,
+      "fields": [
+        {
+          "name": "id",
+          "type": "SERIAL",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": false,
+          "unsigned": true,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "id": "yHW5xf84Ddr8k1-L7ubbt",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "tR1XwfpZ9gDAwy_wPY5bz",
+          "name": "championship_id",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "mHpq9GLPv24fsEzlkoSz4",
+          "name": "home_team_id",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "GPKnBmYmr1UaWK7wPChpQ",
+          "name": "away_team_id",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "BHoxL8Ohai6Gj-vF-BAV5",
+          "name": "home_team_score",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "Zd_azoim1ZqXZyGjRDTWT",
+          "name": "away_team_score",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "FrLFbNQuP1bGIUmvzJLjB",
+          "name": "date",
+          "type": "DATE",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "cto75C1uCV7Bk1nq3NYX8",
+          "name": "status",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": 255
+        },
+        {
+          "id": "F6TsNb4wzeRaeOjBmpAD7",
+          "name": "referee_id",
+          "type": "INTEGER",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": false,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        }
+      ],
+      "comment": "",
+      "indices": [],
+      "uniqueConstraints": [],
+      "color": "#175e7a",
+      "collapsed": false,
+      "width": 263
+    }
+  ],
+  "relationships": [
+    {
+      "startTableId": "WWbXEZp2pPjda0SW06hW8",
+      "startFieldId": "rLfgHw5NtUXCMgIw0qIbg",
+      "endTableId": "V0rFzQL-rBB0IkcvgSpmO",
+      "endFieldId": "oLgkyCZK6wbCLZY_X9QpS",
+      "cardinality": "one_to_many",
+      "fields": [
+        {
+          "startFieldId": "rLfgHw5NtUXCMgIw0qIbg",
+          "endFieldId": "oLgkyCZK6wbCLZY_X9QpS"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_Championship_team_championship_id_Championship",
+      "color": "#808080",
+      "id": "eB3cJKxKqPfIkFTO0Qy1U",
+      "manyLabel": ""
+    },
+    {
+      "startTableId": "jeEdYfP45bZhRdg0h0t86",
+      "startFieldId": "GXLsSVbekhEjvMyqxNh9t",
+      "endTableId": "WWbXEZp2pPjda0SW06hW8",
+      "endFieldId": "YxOm7iXMEnO_BJO4Sa9kc",
+      "cardinality": "one_to_many",
+      "fields": [
+        {
+          "startFieldId": "GXLsSVbekhEjvMyqxNh9t",
+          "endFieldId": "YxOm7iXMEnO_BJO4Sa9kc"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_Team_id_Championship_team",
+      "color": "#808080",
+      "id": "CHH39eT7Mkgi-6JsD9G9f"
+    },
+    {
+      "startTableId": "jeEdYfP45bZhRdg0h0t86",
+      "startFieldId": "GXLsSVbekhEjvMyqxNh9t",
+      "endTableId": "iusSJtoXklMViqbHG1DiN",
+      "endFieldId": "mHpq9GLPv24fsEzlkoSz4",
+      "cardinality": "one_to_many",
+      "fields": [
+        {
+          "startFieldId": "GXLsSVbekhEjvMyqxNh9t",
+          "endFieldId": "mHpq9GLPv24fsEzlkoSz4"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_Team_id_Match_1",
+      "color": "#808080",
+      "id": "tN8qq7LT2w9F0M5u3LrAV"
+    },
+    {
+      "startTableId": "jeEdYfP45bZhRdg0h0t86",
+      "startFieldId": "GXLsSVbekhEjvMyqxNh9t",
+      "endTableId": "iusSJtoXklMViqbHG1DiN",
+      "endFieldId": "GPKnBmYmr1UaWK7wPChpQ",
+      "cardinality": "one_to_many",
+      "fields": [
+        {
+          "startFieldId": "GXLsSVbekhEjvMyqxNh9t",
+          "endFieldId": "GPKnBmYmr1UaWK7wPChpQ"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_Team_id_Match_2",
+      "color": "#808080",
+      "id": "OC6zIWnb1PZitTMXnzQ1f"
+    },
+    {
+      "startTableId": "V0rFzQL-rBB0IkcvgSpmO",
+      "startFieldId": "oLgkyCZK6wbCLZY_X9QpS",
+      "endTableId": "iusSJtoXklMViqbHG1DiN",
+      "endFieldId": "tR1XwfpZ9gDAwy_wPY5bz",
+      "cardinality": "one_to_many",
+      "fields": [
+        {
+          "startFieldId": "oLgkyCZK6wbCLZY_X9QpS",
+          "endFieldId": "tR1XwfpZ9gDAwy_wPY5bz"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_Championship_id_Match",
+      "color": "#808080",
+      "id": "AsirxieZldK_ks4IyFrnK"
+    },
+    {
+      "startTableId": "7qtDgVI9op1L9dsEBbURS",
+      "startFieldId": "ZFyy6MxVoIowoBcBG95k7",
+      "endTableId": "jeEdYfP45bZhRdg0h0t86",
+      "endFieldId": "vk8Zs9-WBLzFo8S0mXJji",
+      "cardinality": "one_to_many",
+      "fields": [
+        {
+          "startFieldId": "ZFyy6MxVoIowoBcBG95k7",
+          "endFieldId": "vk8Zs9-WBLzFo8S0mXJji"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_DjangoUser_id_Team",
+      "color": "#808080",
+      "id": "Y0mSypD3DyxIRq_Wwhzo1"
+    },
+    {
+      "startTableId": "jeEdYfP45bZhRdg0h0t86",
+      "startFieldId": "GXLsSVbekhEjvMyqxNh9t",
+      "endTableId": "F3JtJjCzN6xwyxDYqG9OE",
+      "endFieldId": "V8CzW1AQVDenNU73bd73X",
+      "cardinality": "one_to_many",
+      "fields": [
+        {
+          "startFieldId": "GXLsSVbekhEjvMyqxNh9t",
+          "endFieldId": "V8CzW1AQVDenNU73bd73X"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_Team_id_Player",
+      "color": "#808080",
+      "id": "Q3mXk6XmCQMTuHHfzwUq5"
+    },
+    {
+      "startTableId": "7qtDgVI9op1L9dsEBbURS",
+      "startFieldId": "ZFyy6MxVoIowoBcBG95k7",
+      "endTableId": "iusSJtoXklMViqbHG1DiN",
+      "endFieldId": "F6TsNb4wzeRaeOjBmpAD7",
+      "cardinality": "one_to_many",
+      "fields": [
+        {
+          "startFieldId": "ZFyy6MxVoIowoBcBG95k7",
+          "endFieldId": "F6TsNb4wzeRaeOjBmpAD7"
+        }
+      ],
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_Django User_id_Match",
+      "color": "#808080",
+      "id": "OMZuLMmsprGUJjxpvmfmO"
+    }
+  ],
+  "notes": [],
+  "subjectAreas": [],
+  "views": [],
+  "database": "postgresql",
+  "types": [],
+  "enums": [],
+  "title": "Untitled Diagram"
+}

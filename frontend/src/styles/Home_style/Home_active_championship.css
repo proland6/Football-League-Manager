@@ -1,0 +1,29 @@
+.active_championships {
+    background-color: #111827;
+    padding: 60px 80px;
+    padding-bottom: 0px;
+}
+
+.championships_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
+
+.championships_header h2 {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.championships_header a {
+    color: #22c55e;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.championships_header a:hover {
+    color: #4ade80;
+}

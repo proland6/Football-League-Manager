@@ -1,0 +1,40 @@
+
+.championship_card {
+    background-color: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.championship_status {
+    display: inline-block;
+    color: #22c55e;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.championship_card h3 {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 12px;
+}
+
+.championship_card p {
+    color: #9ca3af;
+    font-size: 16px;
+    margin: 0;
+}
+
+.championship_card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.championship_card:hover {
+    border-color: #22c55e;
+}

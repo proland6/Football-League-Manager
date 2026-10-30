@@ -1,0 +1,45 @@
+.home_result {
+    background-color: #0f172a;
+    padding: 60px 80px;
+}
+
+.result_header {
+    margin-bottom: 32px;
+}
+
+.result_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.match_list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.championship_filter {
+    background-color: #1f2937;
+    color: #ffffff;
+    border: 1px solid #374151;
+    border-radius: 8px;
+
+    padding: 12px 16px;
+    font-size: 15px;
+    font-weight: 500;
+
+    cursor: pointer;
+    outline: none;
+
+    transition: border-color 0.2s ease;
+}
+
+.championship_filter:hover {
+    border-color: #22c55e;
+}
+
+.championship_filter:focus-visible {
+    border-color: #22c55e;
+}

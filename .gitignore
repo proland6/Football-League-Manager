@@ -1,0 +1,30 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Django
+staticfiles/
+media/
+
+# React / Node
+node_modules/
+dist/
+build/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Sensitive files
+felhasználók_jelszok.txt
+
+# IDE
+.idea/
+.vscode/
+
+# macOS
+.DS_Store
