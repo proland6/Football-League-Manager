@@ -1,0 +1,43 @@
+.championships_archive {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 280px;
+}
+
+.championships_archive label {
+    color: #aab8b0;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.championships_archive select {
+    width: 100%;
+    padding: 13px 16px;
+    background-color: #202c25;
+    color: #ffffff;
+    border: 1px solid #35483b;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.championships_archive select:hover {
+    border-color: #39b86a;
+    background-color: #26352c;
+}
+
+.championships_archive select:focus {
+    border-color: #39b86a;
+    box-shadow: 0 0 0 3px rgba(57, 182, 106, 0.12);
+}
+
+.championships_archive select option {
+    background-color: #202c25;
+    color: #ffffff;
+}

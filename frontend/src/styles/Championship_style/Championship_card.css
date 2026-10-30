@@ -1,0 +1,64 @@
+.championships_list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.championship_card {
+    background: #1c2521;
+    border: 1px solid #34443b;
+    border-radius: 12px;
+    padding: 22px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.championship_card:hover {
+    border-color: #39b86a;
+    transform: translateY(-4px);
+}
+
+.championship_card.selected {
+    border-color: #39b86a;
+    box-shadow: 0 0 0 2px rgba(57, 182, 106, 0.15);
+}
+
+.championship_card_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.championship_card h2 {
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.championship_card p {
+    color: #aab8b0;
+    margin-top: 12px;
+}
+
+.championship_status {
+    font-size: 12px;
+    padding: 5px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.championship_status.ongoing {
+    color: #39b86a;
+    background: rgba(57, 182, 106, 0.12);
+}
+
+.championship_status.finished {
+    color: #aab8b0;
+    background: rgba(170, 184, 176, 0.12);
+}
+
+.championship_status.planned {
+    color: #e5b85c;
+    background: rgba(229, 184, 92, 0.12);
+}

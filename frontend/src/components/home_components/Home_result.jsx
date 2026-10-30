@@ -58,6 +58,7 @@ function Result(){
                     className="championship_filter"
                     aria-label="Bajnokság kiválasztása"
                 >
+                    <option value="all">Összes bajnokság</option>
                    {championships
                         .filter((championship) => championship.status === "ongoing")
                         .map((championship) => (
