@@ -1,0 +1,155 @@
+.championship_schedule {
+    margin-top: 35px;
+    padding: 25px;
+    background-color: #17221b;
+    border: 1px solid #2b3b30;
+    border-radius: 14px;
+}
+
+.championship_schedule h2 {
+    margin: 0 0 22px;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* Csapatválasztó */
+
+.schedule_team_selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.schedule_team_selector button {
+    padding: 10px 18px;
+    background-color: #202c25;
+    color: #aab8b0;
+    border: 1px solid #35483b;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.schedule_team_selector button:hover {
+    color: #ffffff;
+    border-color: #39b86a;
+    background-color: #26352c;
+}
+
+.schedule_team_selector button.selected {
+    color: #ffffff;
+    background-color: #237a45;
+    border-color: #39b86a;
+}
+
+/* Mérkőzések listája */
+
+.schedule_matches {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.schedule_match {
+    padding: 18px 20px;
+    background-color: #202c25;
+    border: 1px solid #35483b;
+    border-radius: 10px;
+    transition: border-color 0.2s ease;
+}
+
+.schedule_match:hover {
+    border-color: #39b86a;
+}
+
+/* Mérkőzés fejléc: dátum és hazai/vendég */
+
+.schedule_match_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    color: #aab8b0;
+    font-size: 13px;
+}
+
+.home_match,
+.away_match {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.home_match {
+    color: #6de59a;
+    background-color: rgba(57, 184, 106, 0.13);
+}
+
+.away_match {
+    color: #9db5ff;
+    background-color: rgba(100, 130, 220, 0.13);
+}
+
+/* Csapatok és eredmény */
+
+.schedule_match_teams {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 15px;
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.schedule_match_teams strong:last-child {
+    text-align: right;
+}
+
+.schedule_match_score {
+    min-width: 65px;
+    color: #39b86a;
+    font-size: 18px;
+    font-weight: 800;
+    text-align: center;
+}
+
+/* Üres állapotok */
+
+.championship_schedule p {
+    color: #aab8b0;
+    font-size: 14px;
+}
+
+/* Mobilnézet */
+
+@media (max-width: 600px) {
+    .championship_schedule {
+        padding: 18px 14px;
+    }
+
+    .schedule_match {
+        padding: 15px 12px;
+    }
+
+    .schedule_match_teams {
+        gap: 8px;
+        font-size: 12px;
+    }
+
+    .schedule_match_score {
+        min-width: 45px;
+        font-size: 15px;
+    }
+
+    .schedule_match_header {
+        font-size: 11px;
+    }
+}

@@ -117,3 +117,15 @@ class MatchSerializer(serializers.ModelSerializer):
 
         return fields
 
+
+class ChampionshipTableSerializer(serializers.Serializer):
+    team_id = serializers.IntegerField()
+    team_name = serializers.CharField()
+    played = serializers.IntegerField()
+    wins = serializers.IntegerField()
+    draws = serializers.IntegerField()
+    losses = serializers.IntegerField()
+    goals_for = serializers.IntegerField()
+    goals_against = serializers.IntegerField()
+    goal_difference = serializers.IntegerField()
+    points = serializers.IntegerField()

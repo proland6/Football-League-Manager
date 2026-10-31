@@ -1,0 +1,111 @@
+
+.championship_table {
+    width: 100%;
+    margin-top: 35px;
+    padding: 25px;
+    background-color: #17221b;
+    border: 1px solid #2d4033;
+    border-radius: 14px;
+    box-sizing: border-box;
+}
+
+.championship_table h2 {
+    margin: 0 0 25px;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* Táblázat */
+
+.championship_table table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+/* Fejléc */
+
+.championship_table thead {
+    background-color: #202f25;
+}
+
+.championship_table th {
+    padding: 15px 12px;
+    color: #aab8b0;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* Táblázat sorai */
+
+.championship_table td {
+    padding: 16px 12px;
+    color: #e2e9e4;
+    font-size: 14px;
+    border-bottom: 1px solid #2b3930;
+}
+
+.championship_table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.championship_table tbody tr:hover {
+    background-color: #22352a;
+}
+
+/* Helyezés */
+
+.championship_table tbody td:first-child {
+    color: #39b86a;
+    font-weight: 700;
+}
+
+/* Csapatnév */
+
+.championship_table tbody td:nth-child(2) {
+    color: #ffffff;
+    font-weight: 600;
+    text-align: left;
+}
+
+/* Pontszám */
+
+.championship_table tbody td:last-child {
+    color: #39b86a;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+/* Utolsó sor */
+
+.championship_table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Üres állapot és betöltés */
+
+.championship_table p {
+    color: #aab8b0;
+    font-size: 14px;
+}
+
+/* Mobilnézet */
+
+@media (max-width: 768px) {
+    .championship_table {
+        padding: 15px;
+        overflow-x: auto;
+    }
+
+    .championship_table table {
+        min-width: 650px;
+    }
+
+    .championship_table h2 {
+        font-size: 19px;
+    }
+}

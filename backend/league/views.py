@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 
 from .permissions import PublicReadDjangoModelPermisson, TeamPermission, PlayerPermission, MatchPermission
 from .models import Championship, Match, Player, Team
-from .serializers import ChampionshipSerializer, TeamSerializer, MatchSerializer, PlayerSerializer
+from .serializers import ChampionshipSerializer, TeamSerializer, MatchSerializer, PlayerSerializer, ChampionshipTableSerializer
 
 from django.conf import settings
 
@@ -98,5 +98,89 @@ class GoogleLoginView(APIView):
             status=status.HTTP_200_OK,
         )
 
+class ChampionshipTableView(APIView):
+    permission_classes = [AllowAny]
 
+    def get(self, request, championship_id):
+
+        try:
+            championship = Championship.objects.get(id=championship_id)
+        except Championship.DoesNotExist:
+            return Response(
+                {"error": "Championship not found."},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        teams = championship.team_set.all()
+
+        matches = Match.objects.filter(
+            championship=championship,
+            status=Match.Status.FINISHED
+        )
+
+        table = []
+
+        for team in teams:
+
+            played = 0
+            wins = 0
+            draws = 0
+            losses = 0
+            goals_for = 0
+            goals_against = 0
+
+            for match in matches:
+
+                if match.home_team_id == team.id:
+                    goals_for += match.home_score
+                    goals_against += match.away_score
+                    played += 1
+
+                    if match.home_score > match.away_score:
+                        wins += 1
+                    elif match.home_score == match.away_score:
+                        draws += 1
+                    else:
+                        losses += 1
+
+                elif match.away_team_id == team.id:
+                    goals_for += match.away_score
+                    goals_against += match.home_score
+                    played += 1
+
+                    if match.away_score > match.home_score:
+                        wins += 1
+                    elif match.away_score == match.home_score:
+                        draws += 1
+                    else:
+                        losses += 1
+
+            goal_difference = goals_for - goals_against
+            points = wins * 3 + draws
+
+            table.append({
+                "team_id": team.id,
+                "team_name": team.name,
+                "played": played,
+                "wins": wins,
+                "draws": draws,
+                "losses": losses,
+                "goals_for": goals_for,
+                "goals_against": goals_against,
+                "goal_difference": goal_difference,
+                "points": points
+            })
+
+        table.sort(
+            key=lambda team: (
+                team["points"],
+                team["goal_difference"],
+                team["goals_for"]
+            ),
+            reverse=True
+        )
+
+        serializer = ChampionshipTableSerializer(table, many=True)
+
+        return Response(serializer.data)
         
