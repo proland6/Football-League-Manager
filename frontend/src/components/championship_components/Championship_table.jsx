@@ -1,10 +1,12 @@
 
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import "../../styles/Championship_style/Championship_table.css"
 
 function ChampionshipTable({ championshipId }) {
     const [table, setTable] = useState([]);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!championshipId) return;
@@ -57,7 +59,11 @@ function ChampionshipTable({ championshipId }) {
 
                     <tbody>
                         {table.map((team, index) => (
-                            <tr key={team.team_id}>
+                            <tr 
+                                key={team.team_id}
+                                className="team_table_link"
+                                onClick={() => navigate(`/teams/${team.team_id}`)}
+                            >
                                 <td>{index + 1}.</td>
                                 <td>{team.team_name}</td>
                                 <td>{team.played}</td>

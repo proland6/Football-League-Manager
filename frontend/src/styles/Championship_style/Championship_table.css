@@ -93,6 +93,17 @@
     font-size: 14px;
 }
 
+.table_team_link {
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.table_team_link:hover {
+    color: #39b86a;
+}
+
 /* Mobilnézet */
 
 @media (max-width: 768px) {

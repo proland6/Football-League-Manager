@@ -183,4 +183,24 @@ class ChampionshipTableView(APIView):
         serializer = ChampionshipTableSerializer(table, many=True)
 
         return Response(serializer.data)
+
+class UserDetailView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request, user_id):
+        try:
+            user = User.objects.get(id=user_id)
+
+            return Response({
+                "id": user.id,
+                "username": user.username,
+                "first_name": user.first_name,
+                "last_name": user.last_name
+            })
+
+        except User.DoesNotExist:
+            return Response(
+                {"error": "User not found."},
+                status=status.HTTP_404_NOT_FOUND
+            )
         

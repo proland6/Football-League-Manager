@@ -1,0 +1,79 @@
+
+.team_players {
+    margin-top: 35px;
+}
+
+.team_players h2 {
+    color: #39b86a;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.players_table_container {
+    width: 100%;
+    overflow-x: auto;
+    background: #171d24;
+    border: 1px solid #29333d;
+    border-radius: 12px;
+}
+
+.players_table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #ffffff;
+}
+
+.players_table th {
+    text-align: left;
+    padding: 18px 20px;
+    background: #202832;
+    color: #39b86a;
+    font-size: 15px;
+    border-bottom: 1px solid #394550;
+}
+
+.players_table td {
+    padding: 12px 20px;
+    border-bottom: 1px solid #29333d;
+    font-size: 15px;
+}
+
+.players_table tbody tr:hover {
+    background: #202832;
+}
+
+.players_table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.player_image,
+.player_no_image {
+    width: 55px;
+    height: 55px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.player_no_image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #29333d;
+    color: #aab3bc;
+    font-size: 10px;
+}
+
+.no_players {
+    padding: 20px;
+    color: #aab3bc;
+}
+
+.player_name {
+    cursor: pointer;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.player_name:hover {
+    color: #39b86a;
+}
