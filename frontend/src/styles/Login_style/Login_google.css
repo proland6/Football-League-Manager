@@ -1,0 +1,47 @@
+
+.login-google-container {
+    width: 100%;
+}
+
+.login-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 28px 0;
+    color: #788585;
+    font-size: 12px;
+}
+
+.login-divider::before,
+.login-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #354242;
+}
+
+.google-login {
+    width: 100%;
+    padding: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    border: 1px solid #354242;
+    border-radius: 7px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.google-login:hover {
+    background: #242d2d;
+}
+
+.google-icon {
+    font-weight: bold;
+    font-size: 18px;
+    color: #ffffff;
+}

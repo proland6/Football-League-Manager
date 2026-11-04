@@ -1,8 +1,6 @@
 # ToDo list
 
-## 1. Adatbázis
-
-[**Részletek**: docs/01-database.md](docs/01-database.md)
+## 1. Adatbázis (PosgreSQL)
 
 - [x] Adatbázis megtervezése
   - [x] Táblák
@@ -48,9 +46,9 @@
 - [x] React Router beállítása
 - [ ] Oldalak és komponensek elkészítése
   - [x] Főoldal
-  - [ ] Bajnokságok megjelenítése
-  - [ ] Csapatok és játékosok megjelenítése
-  - [ ] Mérkőzések és eredmények megjelenítése
+  - [x] Bajnokságok megjelenítése
+  - [x] Csapatok és játékosok megjelenítése
+  - [x] Mérkőzések és eredmények megjelenítése
   - [ ] Adminisztrációs és kezelőfelületek
 - [ ] Formok és listák elkészítése
 - [ ] API-kapcsolat kiépítése a Django REST Framework backenddel
@@ -70,15 +68,3 @@
 - [ ] Frontend tesztelése és hibajavítás
 - [ ] Production build elkészítése Vite segítségével
 
-
-## 4. Tesztelés és finomítás
-
-- [ ] Backend tesztelése
-- [ ] API végpontok tesztelése
-- [ ] Frontend tesztelése
-- [ ] Jogosultságok tesztelése
-- [ ] Google-bejelentkezés tesztelése
-- [ ] Hibák javítása
-- [ ] Felület finomítása
-- [ ] Dokumentáció véglegesítése
-- [ ] Beadandó szöveges részének összeállítása

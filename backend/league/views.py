@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 
 from .permissions import PublicReadDjangoModelPermisson, TeamPermission, PlayerPermission, MatchPermission
 from .models import Championship, Match, Player, Team
@@ -96,6 +97,49 @@ class GoogleLoginView(APIView):
                 "access": str(refresh.access_token)
             },
             status=status.HTTP_200_OK,
+        )
+
+class LoginView(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        email = request.data.get("email")
+        password = request.data.get("password")
+
+        if not email or not password:
+            return Response(
+                {"error": "Email and password are required."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            return Response(
+                {"error": "Invalid email or password."},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+
+        authenticated_user = authenticate(
+            request,
+            username=user.username,
+            password=password
+        )
+
+        if authenticated_user is None:
+            return Response(
+                {"error": "Invalid email or password."},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+
+        refresh = RefreshToken.for_user(authenticated_user)
+
+        return Response(
+            {
+                "refresh": str(refresh),
+                "access": str(refresh.access_token)
+            },
+            status=status.HTTP_200_OK
         )
 
 class ChampionshipTableView(APIView):
