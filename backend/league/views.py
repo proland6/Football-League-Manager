@@ -18,7 +18,7 @@ from google.oauth2 import id_token
 from google.auth.transport import requests
 
 from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 
 
 class ChampionshipViewSet(viewsets.ModelViewSet):
@@ -32,7 +32,7 @@ class TeamViewSet(viewsets.ModelViewSet):
     permission_classes = [TeamPermission]
 
 class PlayerViewSet(viewsets.ModelViewSet):
-    queryset = Player.objects.all()
+    queryset = Team.objects.all()
     serializer_class = PlayerSerializer
     permission_classes = [PlayerPermission]
 
@@ -247,4 +247,27 @@ class UserDetailView(APIView):
                 {"error": "User not found."},
                 status=status.HTTP_404_NOT_FOUND
             )
-        
+
+
+class RefereeMatchesView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        if not request.user.groups.filter(name="Referee").exists():
+            return Response(
+                {"detail": "You are not a referee."},
+                status=status.HTTP_403_FORBIDDEN
+            )
+
+        matches = Match.objects.filter(
+            referee=request.user,
+            status=Match.Status.SCHEDULED
+        ).order_by("date_time")
+
+        serializer = MatchSerializer(
+            matches,
+            many=True,
+            context={"request": request}
+        )
+
+        return Response(serializer.data)

@@ -1,14 +1,15 @@
 from rest_framework.routers import DefaultRouter
 
-from .views import ChampionshipViewSet, TeamViewSet, PlayerViewSet, MatchViewSet, GoogleLoginView,LoginView, ChampionshipTableView, UserDetailView
+from .views import ChampionshipViewSet, TeamViewSet, PlayerViewSet, MatchViewSet, GoogleLoginView,LoginView
+from .views import ChampionshipTableView, UserDetailView, RefereeMatchesView
 from rest_framework_simplejwt.views import TokenRefreshView
 
 from django.urls import path, include
 router = DefaultRouter()
 
 router.register("championships", ChampionshipViewSet)
-router.register("teams", TeamViewSet)
-router.register("players", PlayerViewSet)
+router.register("teams", TeamViewSet, basename="team")
+router.register("players", PlayerViewSet, basename="player")
 router.register("matches", MatchViewSet)
 
 urlpatterns = [
@@ -18,5 +19,6 @@ urlpatterns = [
     path("token/refresh/", TokenRefreshView.as_view(), name="token-refresh"),
     path("championships/<int:championship_id>/table/", ChampionshipTableView.as_view(), name="championship-table"),
     path("users/<int:user_id>/", UserDetailView.as_view(), name="user-detail"),
+    path("referee/matches/", RefereeMatchesView.as_view(), name="referee-matches"),
 ]
 

@@ -88,6 +88,22 @@ class PlayerSerializer(serializers.ModelSerializer):
         return image
 
 class MatchSerializer(serializers.ModelSerializer):
+
+    home_team_name = serializers.CharField(
+        source="home_team.name",
+        read_only=True
+    )
+
+    away_team_name = serializers.CharField(
+        source="away_team.name",
+        read_only=True
+    )
+
+    championship_name = serializers.CharField(
+        source="championship.name",
+        read_only=True
+    )
+
     class Meta:
         model = Match
         fields = "__all__"
@@ -129,3 +145,4 @@ class ChampionshipTableSerializer(serializers.Serializer):
     goals_against = serializers.IntegerField()
     goal_difference = serializers.IntegerField()
     points = serializers.IntegerField()
+
