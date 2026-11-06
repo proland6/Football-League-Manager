@@ -1,7 +1,7 @@
 from rest_framework.routers import DefaultRouter
 
 from .views import ChampionshipViewSet, TeamViewSet, PlayerViewSet, MatchViewSet, GoogleLoginView,LoginView
-from .views import ChampionshipTableView, UserDetailView, RefereeMatchesView
+from .views import ChampionshipTableView, UserDetailView, RefereeMatchesView, UserRoleView
 from rest_framework_simplejwt.views import TokenRefreshView
 
 from django.urls import path, include
@@ -20,5 +20,6 @@ urlpatterns = [
     path("championships/<int:championship_id>/table/", ChampionshipTableView.as_view(), name="championship-table"),
     path("users/<int:user_id>/", UserDetailView.as_view(), name="user-detail"),
     path("referee/matches/", RefereeMatchesView.as_view(), name="referee-matches"),
+    path("user/role/", UserRoleView.as_view(), name="user-role"),
 ]
 

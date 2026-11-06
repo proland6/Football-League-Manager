@@ -83,7 +83,11 @@ function TeamLeader() {
             setTeam(ownTeam);
 
             // Saját játékosok
-            setPlayers(playersResponse.data);
+            const ownPlayers = playersResponse.data.filter(
+                player => Number(player.team) === Number(ownTeam.id)
+            );
+
+            setPlayers(ownPlayers);
 
             // Saját csapat mérkőzései
             const ownMatches = matchesResponse.data.filter(

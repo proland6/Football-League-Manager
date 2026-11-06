@@ -17,6 +17,7 @@ function LoginForm() {
         setLoading(true);
 
         try {
+            // 1. Bejelentkezés
             const response = await axios.post(
                 "http://127.0.0.1:8000/api/login/",
                 {
@@ -25,35 +26,45 @@ function LoginForm() {
                 }
             );
 
+            // 2. Tokenek mentése
             localStorage.setItem("access", response.data.access);
             localStorage.setItem("refresh", response.data.refresh);
 
-            try {
-                await axios.get(
-                    "http://127.0.0.1:8000/api/referee/matches/",
-                    {
-                        headers: {
+            // 3. Jogosultság lekérdezése
+            const roleResponse = await axios.get(
+                "http://127.0.0.1:8000/api/user/role/",
+                {
+                    headers: {
                         Authorization: `Bearer ${response.data.access}`
-                        }
                     }
-                );
+                }
+            );
+
+            const roles = roleResponse.data.roles;
+
+            // 4. Átirányítás jogosultság alapján
+            if (roles.includes("referee")) {
 
                 window.location.href = "/referee/matches/";
 
-            } catch (err) {
-                if (err.response?.status === 403) {
-                    window.location.href = "/";
-                } else {
-                    setError("Nem sikerült betölteni a felhasználói adatokat.");
-                }
+            } else if (roles.includes("team_leader")) {
+
+                window.location.href = "/team-leader/";
+
+            } else {
+
+                window.location.href = "/";
             }
 
         } catch (err) {
 
+            localStorage.removeItem("access");
+            localStorage.removeItem("refresh");
+
             if (err.response) {
                 setError(
                     err.response.data.error ||
-                    "Sikertelen bejelentkezés."
+                    "Sikertelen bejelentkezés vagy jogosultság-ellenőrzés."
                 );
             } else {
                 setError("Nem sikerült kapcsolódni a szerverhez.");

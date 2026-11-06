@@ -8,6 +8,7 @@ import Teams from "./pages/Teams"
 import Players from "./pages/Players"
 import Login from "./pages/Login"
 import RefereeMatches from "./pages/Referee_matches";
+import TeamLeader from "./pages/Team_leader";
 
 function App(){
   return(
@@ -21,7 +22,8 @@ function App(){
           <Route path="/players/:playerId" element={<Players />} />
           <Route path="/login" element={<Login />}/>
           <Route path="/referee/matches/" element={<RefereeMatches />}/>
-          
+          <Route path="/team-leader/" element={<TeamLeader />}/>
+
         </Routes>
       </main>
     </>

@@ -32,7 +32,7 @@ class TeamViewSet(viewsets.ModelViewSet):
     permission_classes = [TeamPermission]
 
 class PlayerViewSet(viewsets.ModelViewSet):
-    queryset = Team.objects.all()
+    queryset = Player.objects.all()
     serializer_class = PlayerSerializer
     permission_classes = [PlayerPermission]
 
@@ -271,3 +271,30 @@ class RefereeMatchesView(APIView):
         )
 
         return Response(serializer.data)
+
+
+class UserRoleView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+
+        is_referee = request.user.groups.filter(
+            name="Referee"
+        ).exists()
+
+        is_team_leader = Team.objects.filter(
+            leader=request.user
+        ).exists()
+
+        roles = []
+
+        if is_referee:
+            roles.append("referee")
+
+        if is_team_leader:
+            roles.append("team_leader")
+
+        return Response({
+            "user_id": request.user.id,
+            "roles": roles
+        })

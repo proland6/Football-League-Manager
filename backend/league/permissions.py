@@ -51,7 +51,7 @@ class PlayerPermission(BasePermission):
         if  request.user.is_superuser:
             return True
 
-        if request.user.groups.filter(name="Team Leader").exists() and obj.team.leader == request.user:
+        if request.user.groups.filter(name="Team Leader").exists() and obj.team.leader == request.user and obj.team is not None:
             return True
         
         return False
