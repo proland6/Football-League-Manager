@@ -41,9 +41,13 @@ function LoginForm() {
             );
 
             const roles = roleResponse.data.roles;
+            console.log("Backend roles:", roleResponse.data);
+            console.log("Roles változó:", roles);
 
             // 4. Átirányítás jogosultság alapján
-            if (roles.includes("referee")) {
+            if(roles.includes("admin")){
+                window.open("http://127.0.0.1:8000/admin/","_blank")
+            } else if (roles.includes("referee")) {
 
                 window.location.href = "/referee/matches/";
 

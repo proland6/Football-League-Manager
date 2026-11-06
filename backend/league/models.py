@@ -15,7 +15,7 @@ class Championship(models.Model):
     status = models.CharField(
         max_length=10,
         choices=Status.choices,
-        default=Status.ONGOING
+        default=Status.PLANNED
     )
 
     def __str__(self):

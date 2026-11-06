@@ -278,6 +278,8 @@ class UserRoleView(APIView):
 
     def get(self, request):
 
+        is_admin = request.user.is_superuser
+
         is_referee = request.user.groups.filter(
             name="Referee"
         ).exists()
@@ -287,6 +289,9 @@ class UserRoleView(APIView):
         ).exists()
 
         roles = []
+
+        if is_admin:
+            roles.append("admin")
 
         if is_referee:
             roles.append("referee")

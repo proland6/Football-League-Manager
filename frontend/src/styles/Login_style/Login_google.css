@@ -1,6 +1,6 @@
 
 .login-google-container {
-    width: 100%;
+    width: 300px;
 }
 
 .login-divider {
@@ -21,7 +21,7 @@
 }
 
 .google-login {
-    width: 100%;
+    width: 300px;
     padding: 13px;
     display: flex;
     justify-content: center;

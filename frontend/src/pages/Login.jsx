@@ -14,7 +14,7 @@ function Login() {
 
                 <LoginForm />
 
-                <LoginGoogle />
+                <LoginGoogle width="300"/>
 
                 <LoginFooter />
 
