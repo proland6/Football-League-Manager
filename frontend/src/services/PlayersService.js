@@ -1,7 +1,10 @@
 import { apiRequest } from "./Api";
 
-export function getPlayersByTeam(teamId) {
-    return apiRequest(`/players/?team=${teamId}`);
+export async function getPlayersByTeam(teamId) {
+    
+    const players = await apiRequest(`/players/`); 
+    
+    return players.filter(player => player.team === Number(teamId) || player.team_id === Number(teamId));
 }
 
 export function getPlayerById(playerId) {

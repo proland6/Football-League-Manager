@@ -5,7 +5,7 @@ import { getChampionshipStatus } from "../ChampionshipStatus.js";
 function ChampionshipCard({ id, name, season, status }) {
     return (
         <Link
-            to={`/championships/${id}`}
+            to={`/championships/`}
             className="championship_card"
         >
             <span className="championship_status">

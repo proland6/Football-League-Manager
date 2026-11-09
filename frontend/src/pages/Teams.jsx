@@ -23,7 +23,11 @@ function Team() {
                 setTeam(teamData);
 
                 const playersData = await getPlayersByTeam(teamId);
+
+                console.log("Team ID:", teamId);
+                console.log("Players data:", playersData);
                 setPlayers(playersData);
+
 
                 if (teamData.leader) {
                     const leaderData = await getUserById(teamData.leader);
