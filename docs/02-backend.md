@@ -19,6 +19,7 @@ A modellek, mezők, adatbáziskapcsolatok és migrációk részletes leírása a
 | Django REST Framework (DRF) | REST API, serializáció, API-nézetek és jogosultságok |
 | PostgreSQL | Relációs adatbázis |
 | Django migrations | Az adatbázis-séma létrehozása és módosítása |
+| Pillow | Feltöltött játékosképek kezelése a Django `ImageField` mezőjéhez |
 | Google Identity / Google tokenellenőrzés | Google-fiókkal történő hitelesítés |
 | JWT-alapú API-hitelesítés | A bejelentkezett kliens további kéréseinek hitelesítése |
 | React + Vite | A frontend fejlesztői környezete; nem a Django backend része |
@@ -66,6 +67,8 @@ projekt/
 │   ├── urls.py          # ha külön alkalmazásszintű URL-fájl van
 │   ├── permissions.py   # ha külön fájlban vannak a jogosultságok
 │   └── migrations/
+├── media/
+│   └── players/          # feltöltött játékosképek
 └── projektkonfiguráció/
     ├── settings.py
     └── urls.py
@@ -225,6 +228,31 @@ JSON-válasz
 
 Létrehozásnál és módosításnál a folyamat fordított: a beérkező adatot a serializer validálja, majd a nézet a megfelelő adatbázis-műveletet végzi el.
 
+### 5.3. Játékosprofilképek validálása
+
+A `PlayerSerializer` `validate_image()` metódusa ellenőrzi a feltöltött profilképeket. A jelenlegi szabályok:
+
+- A feltöltött fájl mérete legfeljebb **5 × 1024 × 1024 bájt** (5 MiB) lehet.
+- Az elfogadott MIME-típusok: `image/jpeg` és `image/png` (JPG, JPEG, PNG).
+- A profilkép opcionális; a hiányzó kép megengedett.
+
+A validáció hibás feltöltés esetén `serializers.ValidationError` kivételt eredményez, amelyre az API jellemzően `400 Bad Request` választ ad.
+
+**Korlát:** a MIME-típust a kliens közli, ezért ez önmagában nem bizonyítja a fájl tényleges formátumát. A Pillow-alapú tartalomellenőrzést egyelőre nem vezettük be.
+
+### 5.4. Feltöltött képek kiszolgálása
+
+A képek fájlként a backend `media/players/` könyvtárába kerülnek; a PostgreSQL adatbázis csak az elérési útjukat tárolja. A Django médiabeállításai:
+
+```python
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
+```
+
+A projekt szintű `urls.py` fejlesztői környezetben a `static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)` segítségével teszi elérhetővé a feltöltött fájlokat. A játékos API-válaszában az `image` mező a kép URL-jét tartalmazhatja, illetve `null` lehet.
+
+A csapatvezető a saját játékosánál az `email` és az `image` mezőt módosíthatja; a többi játékosadat módosítását a serializer elutasítja. Az objektumszintű jogosultságokat külön permission ellenőrzi.
+
 ---
 
 ## 6. REST API és CRUD
@@ -283,7 +311,7 @@ A DRF-ben a jogosultságok több szinten vizsgálhatók:
 
 Például nem elegendő, hogy valaki csapatvezető: a saját csapatára vonatkozó korlátozásokat is érvényesíteni kell. A jogosultságkezelés során külön foglalkoztunk a `GET`, `POST`, `PUT`, `PATCH` és `DELETE` műveletek kezelésével, valamint a csapatvezetői és játékvezetői hozzáféréssel.
 
-A csapatvezetői módosítási lehetőségeket tudatosan szűkítettük; nem cél, hogy a csapatvezető tetszőlegesen átírhassa a csapat és a játékosok minden adatát. A pontos, jelenleg érvényes műveleti mátrixot a végleges permission osztályok forráskódja alapján kell beilleszteni.
+A csapatvezetői módosítási lehetőségeket tudatosan szűkítettük: a saját csapat játékosainál az `email` és `image` mezők módosítása engedélyezett. Más csapat játékosának módosítását a backend objektumszintű jogosultságvizsgálata tiltja. A többi szerepkör teljes, végleges műveleti mátrixát a permission osztályok forráskódja alapján kell rögzíteni.
 
 ### 7.3. Fontos biztonsági alapelv
 
@@ -404,8 +432,12 @@ A fejlesztés során az alábbi részeket ellenőriztük:
 | Serializerek | A négy serializer működését ellenőriztük |
 | CRUD API | A fő műveleteket végigpróbáltuk |
 | Jogosultságok | A kialakított szabályokat teszteltük |
+| Játékosprofilkép | Adminisztrátori és csapatvezetői képfeltöltés, tárolás és API-megjelenítés ellenőrizve |
+| Játékosadatok módosítása | Saját játékos `email` módosítása: `200`; tiltott névmódosítás: `400`; más csapat játékosának módosítása: `403` |
 | Google login | A végpont működik, hibás hitelesítésnél `401` választ is vizsgáltunk |
 | Vite | A fejlesztői környezet hiba nélkül indult |
+
+A képfeltöltés 5 MiB-os méretkorlátját és MIME-típus-szűrését beállítottuk, de ezek külön hibásfájl-tesztje nincs dokumentálva.
 
 A kézi ellenőrzések fontosak, de nem helyettesítik az automatizált teszteket. Később érdemes API-teszteket írni például a különböző szerepkörök engedélyezett és tiltott műveleteire.
 
@@ -447,6 +479,7 @@ Attól, hogy egy rekord az API-n keresztül elérhető, még nem szabad mindenki
 6. A csapatvezető nem kap korlátlan módosítási jogot.
 7. A Google-bejelentkezés saját API-végponttal és Google-tokenellenőrzéssel működik, nem a korábban tervezett `django-allauth` megoldásként.
 8. A frontend és a backend HTTP/JSON kommunikáción keresztül kapcsolódik.
+9. A játékosok opcionális profilképeit a Django médiakönyvtárában tároljuk; a serializer méret- és MIME-típus-ellenőrzést végez.
 
 ---
 
